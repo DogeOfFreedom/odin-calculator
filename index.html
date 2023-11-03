@@ -3,54 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Odin Calculator</title>
     <link rel="stylesheet" href="style.css">
     <scirpt src="sript.js" defer></scirpt>
 </head>
 <body> 
     <div class="calculator">
-        <div class="display">hooga booga</div>
+        <div class="display">
+            <span class="display-text">hooga booga</span>
+        </div>
         <div class="btn-body">
             <div>
-                <button class="" id="clear-btn">C</button>
-                <button class="large-calc-btn" id="backspace-btn">back</button>
-                <button id="divide-btn">/</button>
+                <button class="calc-btn" id="clear-btn">AC</button>
+                <button class="calc-btn" id="backspace-btn">C</button>
+                <button class="calc-btn" id="indices-btn">x<sup>y</sup></button>
+                <button class="calc-btn" id="divide-btn">/</button>
             </div>
             <div>
-                <button id="7-btn">7</button>
-                <button id="8-btn">8</button>
-                <button id="9-btn">9</button>
-                <button id="multiply-btn">*</button>
+                <button class="calc-btn" id="7-btn">7</button>
+                <button class="calc-btn" id="8-btn">8</button>
+                <button class="calc-btn" id="9-btn">9</button>
+                <button class="calc-btn" id="multiply-btn">*</button>
             </div>
             <div>
-                <button id="4-btn">4</button>
-                <button id="5-btn">5</button>
-                <button id="6-btn">6</button>
-                <button id="subtract-btn">-</button>
+                <button class="calc-btn" id="4-btn">4</button>
+                <button class="calc-btn" id="5-btn">5</button>
+                <button class="calc-btn" id="6-btn">6</button>
+                <button class="calc-btn" id="subtract-btn">-</button>
             </div>
             <div>
-                <button id="1-btn">1</button>
-                <button id="2-btn">2</button>
-                <button id="3-btn">3</button>
-                <button id="plus-btn">+</button>
+                <button class="calc-btn" id="1-btn">1</button>
+                <button class="calc-btn" id="2-btn">2</button>
+                <button class="calc-btn" id="3-btn">3</button>
+                <button class="calc-btn" id="plus-btn">+</button>
             </div>
             <div>
-                <button id="0-btn">0</button>
-                <button id="point-btn">.</button>
-                <button id="equal-btn">=</button>
+                <button class="large-calc-btn" id="0-btn">0</button>
+                <button class="calc-btn" id="point-btn">.</button>
+                <button class="calc-btn" id="equal-btn">=</button>
             </div>
         </div>
-    </div>
-    <!-- 
-        - Numbers 0-9
-        - Clear Button
-        - Plus, Minus, Multiply, Divide Operator
-        - Equals Button
-        - Backspace Button
-        - decimal point button
-
-        18 keys
-     -->
-    
+    </div>    
 </body>
 </html>
