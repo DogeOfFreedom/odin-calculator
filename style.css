@@ -2,7 +2,8 @@
     --calc-width: 300px;
     --calc-height: 500px;
     --display-height: calc(var(--calc-height) * 0.20);
-    --btn-width: calc(var(--calc-width) / 5);
+    --btn-width: calc(var(--calc-width) / 4.5);
+    --gap-width: calc((var(--calc-width) - var(--btn-width)*4) / 3);
 }
 
 body {
@@ -33,7 +34,7 @@ body {
 }
 
 .display-text {
-    margin: 10px;
+    margin: 10px 10px 20px 10px;
     font-size: 30px;
 }
 
@@ -56,7 +57,6 @@ body {
     border-radius: calc(var(--btn-width)/2);
     background-color: white;
     font-size: 30px;
-    /* flex: auto; */
     height: var(--btn-width);   
 }
 
@@ -69,5 +69,33 @@ body {
         To keep buttons aligned, big button must take into account the size of
         the gaps between smaller buttons.
      */
-    width: calc(var(--btn-width) / 3 + (var(--btn-width) * 2));
+    width: calc(var(--gap-width) + (var(--btn-width) * 2));
+}
+
+@keyframes btn-lift {
+    from {transform: translateY(0px);}
+    to {transform: translateY(-5px);}    
+}
+
+@keyframes btn-press {
+    from {transform: translateY(-5px);}
+    to {transform: translateY(0px);}    
+}
+
+.calc-btn:hover, .large-calc-btn:hover {
+    border-radius: calc(var(--btn-width)/2);
+    background-color: white;
+    font-size: 30px;
+    height: var(--btn-width);
+    animation-name: btn-lift;
+    animation-duration: 0.02s;   
+    transform: translateY(-5px);
+    box-shadow: 0px 7px rgb(217, 220, 225);    
+}
+
+.calc-btn:active, .large-calc-btn:active {
+    transform: translateY(5px);
+    box-shadow: none;
+    animation-name: btn-press;
+    animation-duration: 0.02s;
 }
