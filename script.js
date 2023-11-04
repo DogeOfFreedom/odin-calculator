@@ -1,4 +1,5 @@
 const calcDisplay = document.querySelector(".display-text");
+const resultText = document.querySelector(".result");
 const errorMsg = document.querySelector("#error-msg");
 const OPERATORS = ["^", "*", "/", "+", "-"];
 let clearPreviousResult = false;
@@ -8,6 +9,7 @@ const updateDisplayText = (element) => {
 
     if(clearPreviousResult) {
         calcDisplay.textContent = "";
+        resultText.textContent = "";
         clearPreviousResult = false;
     }
 
@@ -59,7 +61,7 @@ const evaluate = () => {
     }
 
     let result = evaluateExpression(expressionInputs); 
-    calcDisplay.textContent = Math.round(result * 100)/100;
+    resultText.textContent = Math.round(result * 100)/100;
 }
 
 const evaluateExpression = (expressionInputs) => {
@@ -140,7 +142,8 @@ const multiply = (n1, n2) => {
 const divide = (n1, n2) => {
     if(n2 === 0) {
         errorMsg.textContent = "HAH! YOU THOUGHT DIDN'T YAH YOU HUMAN"
-        return "YOU HAVING A LAUGH?";
+        calcDisplay.textContent = "YOU HAVING A LAUGH?";
+        return "NaN";
     }    
     return n1 / n2;
 }
@@ -165,3 +168,12 @@ const operator = (op, n1, n2) => {
 }
 
 addInputEventToButtons();
+
+document.onkeydown = e => {
+    console.log(e.key);
+    if(e.key === "Enter") {
+        document.getElementById("equal").click();
+    } else {
+        document.getElementById(e.key).click();
+    }
+};

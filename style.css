@@ -1,12 +1,20 @@
 :root {
     --calc-width: 350px;
-    --calc-height: 500px;
-    --display-height: calc(var(--calc-height) * 0.12);
+    --calc-height: 550px;
+    --display-height: calc(var(--calc-height) * 0.2);
     --btn-width: calc(var(--calc-width) / 4.5);
     --gap-width: calc((var(--calc-width) - var(--btn-width)*4) / 3);
     --display-font-size: 24px;
+    --result-font-size: 36px;
     --btn-font-size: 24px;
     --error-font-size: 30px;
+    --background-color: #5ac5f6;
+    --calculator-color: #222223;
+    --button-color: #585858;
+    --button-hover-shadow-color: #0f0f10; 
+    --button-highlight-color: #e2e2e2;
+    --display-color: #313131;
+    --display-text-color: #f72978;
 }
 
 body {
@@ -15,32 +23,49 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: var(--background-color);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .calculator {
     width: var(--calc-width);
     height: var(--calc-height);
-    border: 2px solid black;
+    background-color: var(--calculator-color);
     padding: 15px;
     display: flex;
     flex-direction: column;
     border-radius: 25px;
+    box-shadow: 0px 5px 10px black;
 }
 
 .display {
     height: var(--display-height);
     border: 2px solid black;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: column;
     margin-bottom: 20px;
     border-radius: 20px;
+    background-color: var(--display-color);
+    box-shadow: 1px 1px 5px black inset;
+    color: white;
+}
+
+.display p {
+    margin: 0px;
+    text-align: right;
+    padding-right: 10px;
 }
 
 .display-text {
-    margin-bottom: 10px;
-    margin-right: 5px;
+    flex: auto;
+    padding-top: 10px;
     font-size: var(--display-font-size);
+    color: var(--display-text-color);
+}
+
+.result {
+    flex: 2 1 auto;
+    font-size: var(--result-font-size);
 }
 
 .btn-body {
@@ -60,9 +85,12 @@ body {
 
 .calc-btn, .large-calc-btn {
     border-radius: calc(var(--btn-width)/2);
-    background-color: white;
+    border: 1px solid var(--button-color);
     font-size: var(--btn-font-size);
     height: var(--btn-width);   
+    background-color: var(--button-color);
+    color: white;  
+    box-shadow: 0px 5px 5px black;; 
 }
 
 .calc-btn {
@@ -89,12 +117,14 @@ body {
 
 .calc-btn:hover, .large-calc-btn:hover {
     border-radius: calc(var(--btn-width)/2);
-    background-color: white;
     height: var(--btn-width);
     animation-name: btn-lift;
     animation-duration: 0.02s;   
     transform: translateY(-5px);
-    box-shadow: 0px 7px rgb(217, 220, 225);    
+    box-shadow: 0px 7px var(--button-hover-shadow-color);  
+    background-color: var(--button-highlight-color);
+    color: black;  
+    font-weight: bold;
 }
 
 .calc-btn:active, .large-calc-btn:active {
