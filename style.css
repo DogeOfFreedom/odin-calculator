@@ -6,10 +6,12 @@
     --gap-width: calc((var(--calc-width) - var(--btn-width)*4) / 3);
     --display-font-size: 24px;
     --btn-font-size: 24px;
+    --error-font-size: 30px;
 }
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -100,4 +102,9 @@ body {
     box-shadow: none;
     animation-name: btn-press;
     animation-duration: 0.02s;
+}
+
+#error-msg {
+    font-size: var(--error-font-size);
+    line-height: var(--error-font-size);
 }

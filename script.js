@@ -1,4 +1,5 @@
 const calcDisplay = document.querySelector(".display-text");
+const errorMsg = document.querySelector("#error-msg");
 const OPERATOR_VALUE = {
     "^": 5,
     "*": 4,
@@ -10,6 +11,8 @@ const OPERATOR_VALUE = {
 
 const updateDisplayText = (element) => {
     let input = element.id;
+    console.log(input);
+
     if(!isNaN(input)) {
         calcDisplay.textContent += input;
     }
@@ -29,11 +32,11 @@ const updateDisplayText = (element) => {
         operate();
     }
     else if(input === "^") {
-        let lastChar = calcDisplay.textContent.substr(-1);
-        if(!isNaN(lastChar)) {
+        let lastChar = calcDisplay.textContent.slice(-1).trim();
+        if(!isNaN(lastChar) && lastChar !== "") {
             calcDisplay.textContent += input;
         } else {
-            // Update error message
+            errorMsg.textContent = "An exponent can only be used after a number";
         }
     }
     else { // All other operators
