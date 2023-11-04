@@ -24,6 +24,8 @@ const updateDisplayText = (element) => {
     else if(input === ".") {
         if(!calcDisplay.textContent.includes(".")) {
             calcDisplay.textContent += input;
+        } else {
+            errorMsg.textContent = "There cannot be more than one decimal place"
         }
     }
     else if(input === "equal") {
@@ -56,7 +58,8 @@ const evaluate = () => {
         return; 
     }
 
-    calcDisplay.textContent = evaluateExpression(expressionInputs); 
+    let result = evaluateExpression(expressionInputs); 
+    calcDisplay.textContent = Math.round(result * 100)/100;
 }
 
 const evaluateExpression = (expressionInputs) => {
