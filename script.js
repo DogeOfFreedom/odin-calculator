@@ -10,8 +10,6 @@ const OPERATOR_VALUE = {
 
 const updateDisplayText = (element) => {
     let input = element.id;
-    
-    console.log(input);
     if(!isNaN(input)) {
         calcDisplay.textContent += input;
     }
@@ -30,14 +28,22 @@ const updateDisplayText = (element) => {
     else if(input === "equal") {
         operate();
     }
-    else { // Operators
+    else if(input === "^") {
+        let lastChar = calcDisplay.textContent.substr(-1);
+        if(!isNaN(lastChar)) {
+            calcDisplay.textContent += input;
+        } else {
+            // Update error message
+        }
+    }
+    else { // All other operators
         calcDisplay.textContent += ` ${input} `;
     }
     
 }
 
 const operate = () => {
-    console.log("OPERATER OPERATER OP-OP-OP-OPERATER")
+    console.log("OPERATER OPERATER OP-OP-OP-OPERATER");
 }
 
 const addInputEventToButtons = () => {
