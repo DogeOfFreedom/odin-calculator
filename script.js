@@ -51,7 +51,7 @@ const evaluate = () => {
     
         console.table(expressionInputs);
 
-    if(!isValidexpression(expressionInputs)) {
+    if(!isValidExpression(expressionInputs)) {
         errorMsg.textContent = "Invalid expression!";
         return; 
     }
@@ -101,11 +101,14 @@ const evaluateExpressionForOperator = (op, expressionInputs) => {
     }    
 }
 
-const isValidexpression = (expression) => {
+const isValidExpression = (expression) => {
     for(let i = 0; i < expression.length; i++) {
         if(OPERATORS.includes(expression[i])) {
-            if(isNaN(expression[i-1]) && isNaN(expression[i+1])) {
-                return false;
+            if(isNaN(expression[i-1]) || 
+                expression[i-1] === '' ||
+                isNaN(expression[i+1]) ||
+                expression[i+1] === '') {
+                    return false;
             }
         }
     }
@@ -132,6 +135,10 @@ const multiply = (n1, n2) => {
 }
 
 const divide = (n1, n2) => {
+    if(n2 === 0) {
+        errorMsg.textContent = "HAH! YOU THOUGHT DIDN'T YAH YOU HUMAN"
+        return "YOU HAVING A LAUGH?";
+    }    
     return n1 / n2;
 }
 
