@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <scirpt src="sript.js" defer></scirpt>
+    <script src="script.js" defer></script>
 </head>
 <body> 
     <div class="calculator">
         <div class="display">
-            <span class="display-text">hooga booga</span>
+            <span class="display-text"></span>
         </div>
         <div class="btn-body">
             <div>
-                <button class="calc-btn" id="clear-btn">AC</button>
+                <button onclick="updateDisplayText()" class="calc-btn" id="clear-btn">AC</button>
                 <button class="calc-btn" id="backspace-btn">C</button>
                 <button class="calc-btn" id="indices-btn">x<sup>y</sup></button>
                 <button class="calc-btn" id="divide-btn">/</button>

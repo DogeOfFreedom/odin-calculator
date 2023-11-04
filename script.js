@@ -1,3 +1,11 @@
+const displayTextElement = document.querySelector(".display-text");
+
+const updateDisplayText = () => {
+    let originalText = displayTextElement.textContent;
+    displayTextElement.textContent += "1000 + 400 + 500";
+    console.log("pressed");
+}
+
 const add = (n1, n2) => {
     return n1+ n2;
 }
