@@ -2,6 +2,9 @@ const calcDisplay = document.querySelector(".display-text");
 const resultText = document.querySelector(".result");
 const errorMsg = document.querySelector("#error-msg");
 const OPERATORS = ["^", "*", "/", "+", "-"];
+const VALID_KEYS = [
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    "Enter", "Backspace", "/", "+", "-", "^", "."]
 let clearPreviousResult = false;
 
 const updateDisplayText = (element) => {
@@ -19,7 +22,7 @@ const updateDisplayText = (element) => {
     else if(input === "clear") {
         calcDisplay.textContent = "";
     } 
-    else if(input === "backspace") {
+    else if(input === "Backspace") {
         let len = calcDisplay.textContent.length;
         calcDisplay.textContent = calcDisplay.textContent.substring(0, len-1);
     }
@@ -170,10 +173,11 @@ const operator = (op, n1, n2) => {
 addInputEventToButtons();
 
 document.onkeydown = e => {
-    console.log(e.key);
-    if(e.key === "Enter") {
-        document.getElementById("equal").click();
-    } else {
-        document.getElementById(e.key).click();
-    }
+    if(e.key !== null && VALID_KEYS.includes(e.key)) {
+        if(e.key === "Enter") {
+            document.getElementById("equal").click();
+        } else {
+            document.getElementById(e.key).click();
+        }
+    }    
 };
